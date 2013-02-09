@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    {% if page.title %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+    {% else %}
+    <title>{{ site.title }}</title>
+    {% endif %}
+
+    <meta name="author" content="Steve Platz" />
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% else %}
+    <meta name="description" content="{{site.title }} {{ page.title }}" />
+    {% endif %}
+
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}" />
+    {% endif %}
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+
+    <!-- Homepage CSS -->
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+    <!-- Typekit -->
+    <script type="text/javascript" src="http://use.typekit.com/wrt3jgt.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <!-- Google Analytics Code -->
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15551615-1']);
+    _gaq.push(['_setDomainName', 'steveplatz.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- End Google Analytics Code -->
+
+    <!--<script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascripts/jquery.github.js"></script>-->
+
+</head>
+<body>
+
+<h1><a href="/">Steve Platz</a></h1>
+
+<div class="social">
+  <ul class="menu">
+    <li><a href="http://www.twitter.com/steveplatz" title="Twitter">&#xF611;</a></li>
+    <li><a href="http://www.github.com/steveplatz" title="GitHub">&#xF671;</a></li>
+    <li><a href="http://www.linkedin.com/in/steveplatz" title="LinkedIn">&#xF612;</a></li>
+    <li><a href="http://stackoverflow.com/users/48421/steve-platz" title="Stackoverflow">&#xF672;</a></li>
+    <li><a href="mailto:steve.platz@gmail.com" title="Email">&#x2709;</a></li>
+  </ul>
+</div>
+
+<div class="nav">
+<ul class="menu">
+  <li><a href="/" title="Home">home</a></li>
+  <li><a href="/archive.html" title="Home">archive</a></li>
+</ul>
+</div>
+
+<div class="container">
+
+  <div class="content">
+
+  {{ content }}
+
+  </div>
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+      © 2013 Steve Platz.<br />
+      Hosted by <a href="https://github.com/steveplatz/steveplatz.github.com/">GitHub</a> and powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

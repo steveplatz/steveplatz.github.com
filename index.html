@@ -1,0 +1,18 @@
+---
+layout: default
+title: Home
+description: Steve Platz's personal website and blog.
+---
+<p>
+Hi, welcome to my web site. I’m a software developer in Erie, PA
+who specializes in web and .NET development. I currently work
+at LORD Corporation, a leading supplier of vibration isolation systems
+and chemical adhesives.
+</p>
+
+<h2>Recent Posts</h2>
+<ul>
+{% for post in site.posts limit:5 %}
+  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
