@@ -1,5 +1,5 @@
 description: The personal blog of Steve Platz
 name: Steve Platz
-pygments: true
+highlighter: rogue
 title: Steve Platz
 url: http://www.steveplatz.com
