@@ -8,6 +8,8 @@ $sans-serif-font: 'Open Sans', sans-serif;
 $text-color: #2f2f35;
 $logo-color: #c0b38b;
 $code-background: #f4f4f4;
+$link-color: #22779f;
+$visited-link-color: #955827;
 
 @mixin transition($property, $duration, $timing-function) {
   transition: $property $duration $timing-function;
@@ -125,6 +127,14 @@ nav {
 
   ul {
     margin: 5px/$em 20px/$em;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  a:visited {
+    color: $visited-link-color;
   }
 }
 
