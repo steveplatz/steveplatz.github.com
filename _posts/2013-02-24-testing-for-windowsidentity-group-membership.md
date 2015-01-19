@@ -7,10 +7,10 @@ keywords: activedirectory, ad, windowsidentity, membership, .net, c#
 ---
 
 # Testing for WindowsIdentity Group Membership
- 
+
 The following code sample outlines a method for determining the group membership of a Windows user using the `WindowsIdentity` class. This method attempts to be as quick as possible by only comparing the Group SID and not resolving the details for each group a user belongs to.
 
-{% highlight c# linenos %}
+{% highlight c# %}
 public static class WindowsIdentityExtensions
 {
     public static bool IsInGroup(this WindowsIdentity value, string groupName)

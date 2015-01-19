@@ -10,6 +10,12 @@
 
 {% include header.html %}
 
+<div class="photo-big" style="background-image: url({{ page.header_photo }})">
+  <div class="container">
+    {{ page.header_text }}
+  </div>
+</div>
+
 <div class="container content">
   {{ content }}
 </div>
