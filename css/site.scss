@@ -1,0 +1,296 @@
+---
+---
+
+@import 'frameless';
+
+$serif-font: 'Lora', serif;
+$sans-serif-font: 'Open Sans', sans-serif;
+$text-color: #2f2f35;
+$logo-color: #c0b38b;
+$code-background: #f4f4f4;
+
+@mixin transition($property, $duration, $timing-function) {
+  transition: $property $duration $timing-function;
+  -moz-transition: $property $duration $timing-function;
+  -webkit-transition: $property $duration $timing-function;
+  -ms-transition: $property $duration $timing-function;
+}
+
+@mixin border-radius($border-radius) {
+  border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+}
+
+@mixin background-size($background-size) {
+  -webkit-background-size: $background-size;
+  -moz-background-size: $background-size;
+  -o-background-size: $background-size;
+  background-size: $background-size;
+}
+
+@font-face {
+  font-family: "SS Social";
+  src: url("/webfonts/ss-social-regular.eot");
+  src: local("☺"),
+  url("/webfonts/ss-social-regular.woff") format("woff"),
+  url("/webfonts/ss-social-regular.otf") format("opentype"),
+  url("/webfonts/ss-social-regular.svg#ss-social-regular") format("svg");
+}
+
+body {
+  xbackground: url('background.gif') repeat-y center top;
+  xbackground-size: 841px/$em;
+  color: $text-color;
+  font-family: $sans-serif-font;
+}
+
+.container {
+  margin: auto;
+  position: relative;
+}
+
+.clear {
+  clear: both;
+}
+
+header {
+  margin: 30px/$em 0 30px/$em 0;
+
+  h1 {
+    font: $sans-serif-font;
+    font-size: 28px/$em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  h1 span {
+    color: $logo-color;
+  }
+}
+
+nav {
+  text-align: center;
+
+  li {
+    display: inline;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    text-align: center;
+    margin-left: $gutter/$em;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+    border-bottom: 2px solid #fff;
+    @include transition(border-bottom, 0.25s, linear);
+  }
+
+  a:hover {
+    border-bottom: 2px solid $logo-color;
+  }
+
+  li span {
+    font: 18px/$em $sans-serif-font;
+    font-weight: 600;
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
+}
+
+.content {
+  clear: left;
+  margin-top: 30px/$em;
+
+  p {
+    margin: 20px/$em 0;
+  }
+
+  h1 {
+    font-size: 32px/$em;
+  }
+
+  h1,h2,h3,h4,h5 {
+    font-family: $serif-font;
+    text-align: left;
+
+    +p {
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    margin: 5px/$em 20px/$em;
+  }
+}
+
+footer {
+  margin-top: 50px/$em;
+  margin-bottom: 20px/$em;
+  border-top: 2px/$em solid $text-color;
+  xbackground-color: $text-color;
+  xcolor: #fff;
+
+  h2 {
+    font-size: 16px/$em;
+  }
+
+  li {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+  }
+
+  a {
+    color: $text-color;
+  }
+
+  a:hover {
+    color: $logo-color;
+  }
+
+  .left-col, .right-col {
+    margin: 20px/$em 0;
+    float: left;
+  }
+}
+
+.photo-big {
+  background: $text-color;
+  background-position: top center;
+  background-repeat: no-repeat;
+  @include background-size(cover);
+  xborder-top: 1px solid #666;
+  xborder-bottom: 1px solid #666;
+}
+
+.highlight {
+  padding: 10px/$em;
+  background: $code-background;
+  @include border-radius(5px/$em);
+}
+
+code {
+  background: $code-background;
+}
+
+pre {
+  background: $code-background;
+  padding: 10px/$em;
+  @include border-radius(5px/$em);
+}
+
+pre code {
+
+}
+
+/**
+Mobile layout
+240-600 px
+**/
+
+@media screen and (min-width: 15em) {
+  .container {
+    width: $cols4;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .photo-big {
+    display: none;
+  }
+}
+
+/*
+Wide mobile layout
+480-767 px
+Zoomed in above 480 px
+*/
+
+@media screen and (min-width: 30em){
+  .container {
+    width: $cols6;
+  }
+
+  .photo-big {
+    display: block;
+    height: 350px/$em;
+  }
+}
+
+/*
+Tablet layout
+600-911 px
+Zoomed in above 600 px
+*/
+
+@media screen and (min-width: 37.5em) {
+  .container {
+    width: $cols8;
+  }
+
+  h1 {
+    text-align: left;
+  }
+
+  nav {
+    position: absolute;
+    right: 0;
+    top: 10px/$em;
+  }
+
+  .photo-big {
+    height: 400px/$em;
+  }
+
+  .left-col {
+    width: $cols8;
+  }
+
+  .right-col {
+    width: $cols8;
+  }
+}
+
+
+/*
+desktop layout
+912-infinity px
+
+*/
+
+@media screen and (min-width: 57em) {
+  .container {
+    width: $cols11;
+  }
+
+  .photo-big {
+    height: 500px/$em;
+  }
+
+  .left-col {
+    width: $cols6;
+  }
+
+  .right-col {
+    width: $cols5;
+    text-align: right;
+  }
+}
+
+
+/*
+full page zoom above 1024 px. still desktop layout.
+*/
+
+@media screen and (min-width: 64em) {
+  body {
+    font-size: ($font-size + 2) / $em;
+  }
+}

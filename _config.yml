@@ -3,3 +3,5 @@ name: Steve Platz
 highlighter: rogue
 title: Steve Platz
 url: http://www.steveplatz.com
+sass:
+    sass_dir: _sass
