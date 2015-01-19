@@ -179,8 +179,6 @@ footer {
   background-position: top center;
   background-repeat: no-repeat;
   @include background-size(cover);
-  xborder-top: 1px solid #666;
-  xborder-bottom: 1px solid #666;
 }
 
 .highlight {
