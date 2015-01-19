@@ -1,11 +1,9 @@
 ---
 layout: default
 title: About
-description: Steve Platz's personal website and blog.
+description: About Steve Platz
 ---
 
-Hi, my name is Steve Platz. I'm a enterprise architect and software developer in the Raleigh-Durham, NC area, working at [LORD Corporation](http://www.lord.com). 
+My name is Steve Platz. I’m a developer, process analyst, architect, and drummer. I work in the Raleigh-Durham, North Carolina area in the Customer Engagement group at [LORD Corporation](http://www.lord.com). This blog, its content and opinions are my own. My goals with this site are to blog about technology, gadgets, the web, and things I find interesting.
 
-I'm into things such as web development, process improvement, technology, music, and learning. You can find out more about my professional experience by viewing my [resum&eacute;](/files/resume.pdf) \[pdf\] or by checking out my [LinkedIn](http://www.linkedin.com/in/steveplatz) profile.
-
-All opinions are my own and don't necessarily reflect those of my employer.
+You can find me around the web at various places like [Twitter](http://www.twitter.com/steveplatz), [LinkedIn](http://www.linkedin.com/in/steveplatz), [GitHub](http://www.github.com/steveplatz), and [Stack Overflow](http://stackoverflow.com/users/48421/steve-platz). I keep an up-to-date list of social links in the footer of this page.
