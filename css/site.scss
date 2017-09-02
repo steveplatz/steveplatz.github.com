@@ -7,7 +7,7 @@ $serif-font: 'Lora', serif;
 $sans-serif-font: 'Open Sans', sans-serif;
 $text-color: #2f2f35;
 $logo-color: #c0b38b;
-$code-background: #f4f4f4;
+$code-background: #f6f6f6;
 $link-color: #22779f;
 $visited-link-color: #955827;
 
@@ -188,17 +188,7 @@ footer {
 }
 
 code {
-  background: $code-background;
-}
-
-pre {
-  background: $code-background;
-  padding: 10px/$em;
-  @include border-radius(5px/$em);
-}
-
-pre code {
-
+  background: $code-background !important;
 }
 
 /**

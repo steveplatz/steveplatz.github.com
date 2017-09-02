@@ -1,6 +1,6 @@
-description: The personal blog of Steve Platz
+description: The personal website and blog of Steve Platz
 name: Steve Platz
-highlighter: pygments
+highlighter: rouge
 title: Steve Platz
 url: http://www.steveplatz.com
 sass:
