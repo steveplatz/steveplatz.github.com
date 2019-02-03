@@ -8,28 +8,32 @@ keywords: activedirectory, ad, windowsidentity, membership, .net, c#
 
 # Testing for WindowsIdentity Group Membership
 
+<p class="post-date">{{ page.date | date: "%-d %B %Y" }}</p>
+
 The following code sample outlines a method for determining the group membership of a Windows user using the `WindowsIdentity` class. This method attempts to be as quick as possible by only comparing the Group SID and not resolving the details for each group a user belongs to.
 
-    public static class WindowsIdentityExtensions
+{% highlight csharp %}
+public static class WindowsIdentityExtensions
+{
+    public static bool IsInGroup(this WindowsIdentity value, string groupName)
     {
-        public static bool IsInGroup(this WindowsIdentity value, string groupName)
-        {
-            if (value == null)
-                return false;
-            if (string.IsNullOrWhiteSpace(groupName))
-                return false;
+        if (value == null)
+            return false;
+        if (string.IsNullOrWhiteSpace(groupName))
+            return false;
 
-            using (var ctx = new PrincipalContext(ContextType.Domain))
+        using (var ctx = new PrincipalContext(ContextType.Domain))
+        {
+            using (var group = GroupPrincipal.FindByIdentity(ctx, IdentityType.Name, groupName))
             {
-                using (var group = GroupPrincipal.FindByIdentity(ctx, IdentityType.Name, groupName))
-                {
-                    return group != null &&
-                        value.Groups.Select(g => g.Value).Contains(group.Sid.Value);
-                }
+                return group != null &&
+                    value.Groups.Select(g => g.Value).Contains(group.Sid.Value);
             }
         }
     }
+}
 
-    // Usage
-    WindowsIdentity identity = WindowsIdentity.GetCurrent();
-    identity.IsInGroup("GroupName"); // Returns true or false
+// Usage
+WindowsIdentity identity = WindowsIdentity.GetCurrent();
+identity.IsInGroup("GroupName"); // Returns true or false
+{% endhighlight %}

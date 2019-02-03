@@ -1,0 +1,51 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+{% if page.title %}
+<title>{{ page.title }} — {{ site.title }}</title>
+{% else %}
+<title>{{ site.title }}</title>
+{% endif %}
+
+<link rel="canonical" href="http://steveplatz.com/"/>
+<meta property="og:site_name" content="{{ site.title }}"/>
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+<meta property="og:type" content="website"/>
+<meta itemprop="name" content="{{ page.title }}"/>
+<meta itemprop="url" content="{{ site.url }}"/>
+<meta name="author" content="Steve Platz" />
+
+{% if page.description %}
+<meta name="description" content="{{ page.description }}" />
+{% else %}
+<meta name="description" content="{{site.title }} {{ page.title }}" />
+{% endif %}
+
+{% if page.keywords %}
+<meta name="keywords" content="{{ page.keywords }}" />
+{% endif %}
+
+<!-- SS Social -->
+<link href="/webfonts/ss-social-circle.css" rel="stylesheet" />
+
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,700" rel="stylesheet">
+
+<!-- Layout -->
+<link rel="stylesheet" href="/css/site.css" type="text/css" />
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15551615-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15551615-1');
+</script>
+<!-- End Google Analytics Code -->

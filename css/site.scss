@@ -1,299 +1,377 @@
 ---
 ---
 
-@import 'frameless';
+@import 'code-highlighting';
 
-$serif-font: 'Lora', serif;
-$sans-serif-font: 'Open Sans', sans-serif;
-$text-color: #2f2f35;
-$logo-color: #c0b38b;
-$code-background: #f6f6f6;
+$font-size: 16px; 		// Base font size
+$em: $font-size / 1em;	// Shorthand for outputting ems
+$sans-serif-font: 'IBM Plex Sans', sans-serif;
+$text-color: rgba(47, 47, 53, 1);
+$code-background: #fdf6e3;
+$inline-code-background: rgb(239, 240, 241);
+$thead-background: #fdf6e3;
 $link-color: #22779f;
 $visited-link-color: #955827;
-
-@mixin transition($property, $duration, $timing-function) {
-  transition: $property $duration $timing-function;
-  -moz-transition: $property $duration $timing-function;
-  -webkit-transition: $property $duration $timing-function;
-  -ms-transition: $property $duration $timing-function;
-}
-
-@mixin border-radius($border-radius) {
-  border-radius: $border-radius;
-  -moz-border-radius: $border-radius;
-  -webkit-border-radius: $border-radius;
-}
-
-@mixin background-size($background-size) {
-  -webkit-background-size: $background-size;
-  -moz-background-size: $background-size;
-  -o-background-size: $background-size;
-  background-size: $background-size;
-}
+$td-border-color: #f2f2f2;
+$container-width: 720px;
+$footer-background: rgb(248, 249, 251);
+$footer-border: 1px solid rgb(229, 234, 241);
+$footer-link-color: rgba(47, 47, 53, 0.7);
+$footer-link-color-hover: rgba(47, 47, 53, 1);
+$disclaimer-color: rgba(47, 47, 53, 0.3);
+$link-color: rgba(8, 129, 179, 0.8);
+$link-color-hover: rgba(8, 129, 179, 1);;
+$link-color-visited: rgb(110, 78, 199);
 
 @font-face {
-  font-family: "SS Social";
-  src: url("/webfonts/ss-social-regular.eot");
-  src: local("☺"),
-  url("/webfonts/ss-social-regular.woff") format("woff"),
-  url("/webfonts/ss-social-regular.otf") format("opentype"),
-  url("/webfonts/ss-social-regular.svg#ss-social-regular") format("svg");
+    font-family: "SS Social";
+    src: url("/webfonts/ss-social-regular.eot");
+    src: local("☺"),
+    url("/webfonts/ss-social-regular.woff") format("woff"),
+    url("/webfonts/ss-social-regular.otf") format("opentype"),
+    url("/webfonts/ss-social-regular.svg#ss-social-regular") format("svg");
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Structure */
+
+html, body {
+    height: 100%;
 }
 
 body {
-  xbackground: url('background.gif') repeat-y center top;
-  xbackground-size: 841px/$em;
-  color: $text-color;
-  font-family: $sans-serif-font;
+    font-family: $sans-serif-font;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.5em;
+    color: $text-color;
+    -webkit-text-size-adjust: 100%;
 }
 
 .container {
-  margin: auto;
-  position: relative;
-}
-
-.clear {
-  clear: both;
+    text-align: left;
+    margin: auto;
+    width: $container-width;
 }
 
 header {
-  margin: 30px/$em 0 30px/$em 0;
-
-  h1 {
-    font: $sans-serif-font;
-    font-size: 28px/$em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  h1 a {
-    color: $text-color;
-    text-decoration: none;
-  }
 
   h1 span {
-    color: $logo-color;
-  }
-}
-
-nav {
-  text-align: center;
-
-  li {
-    display: inline;
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
-    text-align: center;
-    margin-left: $gutter/$em;
+      display: none;
   }
 
-  a {
-    text-decoration: none;
-    color: $text-color;
-    border-bottom: 2px solid #fff;
-    @include transition(border-bottom, 0.25s, linear);
-  }
+  nav {
+    ul {
+      list-style: none;
+      margin: 2em 0 0 0;
+      padding: 0;
 
-  a:hover {
-    border-bottom: 2px solid $logo-color;
-  }
+      li {
+          display: inline;
+          padding: 0 0.75em 0 0.75em;
+          white-space: nowrap;
 
-  li span {
-    font: 18px/$em $sans-serif-font;
-    font-weight: 600;
-  }
+          a {
+              padding: 5px 15px;
+              background: rgba(229, 234, 241, 0.5);
+              border-radius: 4px;
+              color: $footer-link-color;
+              text-decoration: none;
+              box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+              display: inline-block;
+          }
 
-  li:first-child {
-    margin-left: 0;
-  }
-}
+          a:visited {
+            color: $footer-link-color;
+          }
 
-.content {
-  clear: left;
-  margin-top: 30px/$em;
-
-  p {
-    margin: 20px/$em 0;
-  }
-
-  h1 {
-    font-size: 32px/$em;
-  }
-
-  h1,h2,h3,h4,h5 {
-    font-family: $serif-font;
-    text-align: left;
-
-    +p {
-      margin-top: 0;
+          a:active {
+            transform: translateY(2px);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+          }
+          
+      }
     }
   }
 
-  ul {
-    margin: 5px/$em 20px/$em;
-  }
-
-  a {
-    color: $link-color;
-  }
-
-  a:visited {
-    color: $visited-link-color;
+  .container {
+      text-align: center;
   }
 }
 
 footer {
-  margin-top: 50px/$em;
-  margin-bottom: 20px/$em;
-  border-top: 2px/$em solid $text-color;
-  xbackground-color: $text-color;
-  xcolor: #fff;
+    background: $footer-background;
+    border-top: $footer-border;
+    margin-top: 80px;
+    padding: 20px 20px 60px 20px;
 
-  h2 {
-    font-size: 16px/$em;
-  }
+    ul {
+        list-style: none;
+        margin: 2em 0 0 0;
+        padding: 0;
 
-  li {
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
-  }
+        li {
+            display: inline;
+            padding: 0 1em 0 1em;
+            white-space: nowrap;
+        }
+    }
 
-  a {
-    color: $text-color;
-  }
+    a {
+      color: $footer-link-color;
+      border-bottom-color: $footer-background;
+    }
 
-  a:hover {
-    color: $logo-color;
-  }
+    a:hover {
+      color: $footer-link-color-hover;
+    }
 
-  .left-col, .right-col {
-    margin: 20px/$em 0;
-    float: left;
-  }
+    a:visited { 
+        color: $footer-link-color;
+    }
+
+    .container {
+      text-align: center;
+    }
 }
 
-.photo-big {
-  background: $text-color;
-  background-position: top center;
-  background-repeat: no-repeat;
-  @include background-size(cover);
+.disclaimer {
+  font-size: 0.75em;
+  color: $disclaimer-color;
+  margin-top: 2.25em;
+}
+
+.logo {
+    width: 125px;     
+}
+
+/* typography */
+h1 {
+    font-size: 2.25em;
+    margin: 2.25em 0 0.5em 0;
+    line-height: 1.125em;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin: 1.75em 0 0.5em 0;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin: 1.25em 0 0.5em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1em 0 0.5em 0;
+}
+
+p {
+    margin: 0 0 1.25em 0;
+}
+
+blockquote {
+    margin-left: 20px;
+    padding-left: 20px;
+    font-style: italic;
+    border-left: $footer-border;
+}
+
+a{
+    xtext-decoration: none;
+    xborder-bottom: 2px solid #fff;
+    color: $link-color;
+    transition: border-bottom .20s ease-in;
+    -moz-transition: border-bottom .20s ease-in;
+    -webkit-transition: border-bottom .20s ease-in;
+    -ms-transition: border-bottom .20s ease-in;
+}
+
+a:hover {
+    color: $link-color-hover;
+    xborder-bottom: 2px solid;
+}
+
+a:visited {
+    color: $link-color-visited;
+}
+
+::selection {
+    background: red;
+    color: white
+}
+
+::-moz-selection {
+    background: red;
+    color: white
+}
+
+img::selection {
+    background: transparent
+}
+
+img::-moz-selection {
+    background: transparent
+}
+
+.post-date {
+    margin-top: -0.5em;
+    font-style: italic;
+}
+
+.lord, .lord:visited { color: rgba(219, 68, 51, 0.8); }
+.lord:hover { color: rgba(219, 68, 51, 1); }
+.twitter, .twitter:visited { color: rgba(70, 148, 218, 0.8); }
+.twitter:hover { color: rgba(70, 148, 218, 1); }
+.linkedin, .linkedin:visited { color: rgba(50, 118, 176, 0.8); }
+.linkedin:hover { color: rgba(50, 118, 176, 1); }
+.github, .github:visited { color: rgba(64, 120, 192, 0.8); }
+.github:hover { color: rgba(64, 120, 192, 1); }
+.stackoverflow, .stackoverflow:visited { color: rgba(229, 133, 61, 0.8); }
+.stackoverflow:hover { color: rgba(229, 133, 61, 1); }
+
+/* Lists */
+ol, ul {
+    margin: 0 0 1.25em 40px;
+}
+
+li {
+    padding-left: 12px;
+    margin-bottom: 1.25em;
+}
+
+/* Tables */
+.table {
+    border-collapse: collapse;
+    border-radius: 8px/$em;
+    width: 100%;
+    webkit-box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 10px 0px;
+    margin: 2em 0 2em 0;
+
+    tr {
+        border-bottom: 1px solid $td-border-color;
+    }
+
+    th {
+        padding: 0.75em 0.5em 0.75em 0.5em;
+        background-color: $thead-background;
+        text-align: left;
+    }
+
+    th:first-child {
+        border-top-left-radius: 8px/$em;
+    }
+
+    th:last-child {
+        border-top-right-radius: 8px/$em;
+    }
+
+    td {
+        padding: 0.75em 0.5em 0.75em 0.5em;
+    }
+
+    tbody tr:hover {
+        background-color: $td-border-color;
+    }
+}
+
+.table-caption {
+    margin: -1em 0 1.25em 0;
+    font-style: italic;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Images */
+.extrawide {
+    margin-left: -240px;
+    max-width: 1200px; 
+}
+
+li .extrawide {
+    margin-left: -285px;
+}
+
+/* Non-wide images won't exceed the text width, even if we shrink text width further */
+img:not(.extrawide), video, iframe {
+    max-width: 100%;
+}
+
+img:not(.extrawide), video {
+    height: auto;
+}
+
+/* Code */
+code {
+    background-color: $inline-code-background;
+    border-radius: 2px;
+    padding: 2px 4px 2px 4px;
+    font-size: 1.10em;
 }
 
 .highlight {
-  padding: 10px/$em;
-  background: $code-background;
-  @include border-radius(5px/$em);
+    padding: 10px/$em;
+    border-radius: 8px/$em;
+    overflow: scroll;
+  }
+
+.highlight pre {
+    margin-bottom: 0;
 }
 
-code {
-  background: $code-background !important;
+.highlight pre code {
+    background: none;
 }
 
-/**
-Mobile layout
-240-600 px
-**/
-
-@media screen and (min-width: 15em) {
-  .container {
-    width: $cols4;
-  }
-
-  h1 {
-    text-align: center;
-  }
-
-  .photo-big {
-    display: none;
-  }
+.highlighter-rouge {
+    margin: 0 0 1em 0;
 }
 
-/*
-Wide mobile layout
-480-767 px
-Zoomed in above 480 px
-*/
-
-@media screen and (min-width: 30em){
-  .container {
-    width: $cols6;
-  }
-
-  .photo-big {
-    display: block;
-    height: 350px/$em;
-  }
+@media only screen and (max-width: 1200px) {
+    .extrawide {
+        margin-left: calc(-1 * (100vw - 720px) / 2);
+        max-width: 100vw;
+    }
+    img.extrawide, video.extrawide {
+        height: auto;
+    }
+    li .extrawide {
+        margin-left: calc(-1 * (((100vw - 720px) / 2) + 57px));
+    }
 }
 
-/*
-Tablet layout
-600-911 px
-Zoomed in above 600 px
-*/
+@media only screen and (max-width: 746px) {
+    .extrawide {
+        margin-left: -20px;
+        width: 100vw;
+    }
 
-@media screen and (min-width: 37.5em) {
-  .container {
-    width: $cols8;
-  }
+    li .extrawide {
+        margin-left: -77px;
+    }
 
-  h1 {
-    text-align: left;
-  }
-
-  nav {
-    position: absolute;
-    right: 0;
-    top: 10px/$em;
-  }
-
-  .photo-big {
-    height: 400px/$em;
-  }
-
-  .left-col {
-    width: $cols8;
-  }
-
-  .right-col {
-    width: $cols8;
-  }
+    .container {
+        width: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
+@media only screen and (max-width: 568px) {
+    body {
+        font-size: 1rem;
+    }
 
-/*
-desktop layout
-912-infinity px
-
-*/
-
-@media screen and (min-width: 57em) {
-  .container {
-    width: $cols11;
-  }
-
-  .photo-big {
-    height: 500px/$em;
-  }
-
-  .left-col {
-    width: $cols6;
-  }
-
-  .right-col {
-    width: $cols5;
-    text-align: right;
-  }
-}
-
-
-/*
-full page zoom above 1024 px. still desktop layout.
-*/
-
-@media screen and (min-width: 64em) {
-  body {
-    font-size: ($font-size + 2) / $em;
-  }
+    table {
+        font-size: 0.8rem;
+    }
 }
