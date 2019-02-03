@@ -1,14 +1,10 @@
 ---
-layout: default
+layout: post
 title: Testing for WindowsIdentity Group Membership
 tags: activedirectory windowsidentity membership  
 description: How to test for WindowsIdentity Group Membership
 keywords: activedirectory, ad, windowsidentity, membership, .net, c#
 ---
-
-# Testing for WindowsIdentity Group Membership
-
-<p class="post-date">{{ page.date | date: "%-d %B %Y" }}</p>
 
 The following code sample outlines a method for determining the group membership of a Windows user using the `WindowsIdentity` class. This method attempts to be as quick as possible by only comparing the Group SID and not resolving the details for each group a user belongs to.
 

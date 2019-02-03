@@ -1,14 +1,10 @@
 ---
-layout: default
+layout: post
 title: Dynamics CRM Potential Customer
 tags: dynamics dynamics365 opportunity crm 
 description: Unexpected behavior when using the potential customer field in Dynamics CRM
 keywords: dynamics dynamics365 crm opportunity potential-customer
 ---
-
-# Dynamics CRM Potential Customer
-
-<p class="post-date">{{ page.date | date: "%-d %B %Y" }}</p>
 
 This post describes an odd behavior of the Potential Customer Opportunity field that I recently ran across. I couldn’t find this documented anywhere else, so I wanted to share. Everything was tested on Dynamics CRM Online 9.0.1.1121.
 

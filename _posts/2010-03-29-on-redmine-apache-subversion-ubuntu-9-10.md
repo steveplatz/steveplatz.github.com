@@ -1,14 +1,10 @@
 ---
-layout: default
+layout: post
 title: On Redmine, Apache, Subversion, and Ubuntu 9.10
 tags: ubuntu redmine subversion apache
 description: How to fix Redmine.pm with Apache on Ubuntu 9.10
 keywords: ubuntu, apache, redmine, subversion, mpm
 ---
-
-# On Redmine, Apache, Subversion, and Ubuntu 9.10
-
-<p class="post-date">{{ page.date | date: "%-d %B %Y" }}</p>
 
 If you’re installing Redmine in a recent version of Ubuntu, you may want to be aware of this.
 
